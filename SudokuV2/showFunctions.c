@@ -21,6 +21,7 @@ int showMenu(BOARD* sudoku)
     char *trashSTDIN = " "; //for catch trash from stdin
     char arqName[TAM_NAME_ARQ];
     int resSolutionSudoku = 0;
+    FILE* arqTemp = fopen("matriztemp.txt", "r");   //MatrizTemp it's for save the current sudoku and use in solveSudoku
 
     /* Remove trash from stdin */
     while(stdin == NULL)
@@ -67,7 +68,6 @@ int showMenu(BOARD* sudoku)
             return 1;
         break;
         case 3:             //Resolves sudoku
-            FILE* arqTemp = fopen("matriztemp.txt", "r");   //MatrizTemp it's for save the current sudoku and use in solveSudoku
             if(arqTemp == NULL){
                 printf(BOLD(RED("Não há nenhum Sudoku para solucionar"))"\n\n");
                 return 2;
